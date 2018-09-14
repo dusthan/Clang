@@ -8,12 +8,30 @@ C lang practice
 
 - Delete
 
-- update
+- Update
 
-- query
+- Query
 
 - Reverse
 
 - Swap
+
+- Show
+
+## Single link
+
+- Add
+
+- Delete
+
+- Update
+
+- Query
+
+- Reverse
+
+- Swap
+
+- Sort
 
 - Show

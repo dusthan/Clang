@@ -97,12 +97,14 @@ void delete_node()
         if(curr->id == id)  // delete head
         {
             head = curr->next;
+            cnt--;
             print_line("Delete successful!");
             return;
         }
         if(curr->next && curr->next->id == id) 
         {
             curr->next = curr->next->next;
+            cnt--;
             print_line("Delete successful!");
             return;
         }
@@ -355,6 +357,30 @@ void uniq_list()
 
 }
 
+void reverse_list()
+{
+    struct Link *curr = head;
+    struct Link *newH = NULL;
+    struct Link *temp = NULL;
+
+    if(cnt < 2) 
+    {
+        print_line("List length < 2");        
+        return;
+    }
+
+    while(curr)
+    {
+        temp = curr->next;  //缓存下个node用来遍历
+        curr->next = newH;  //将当前node插入到新List的头部
+        newH  = curr;       //更新新链表的head
+        curr = temp;        //继续遍历
+    }
+    head = newH;
+    print_all();
+}
+
+
 void update_node()
 {
     int id=-1;
@@ -398,6 +424,7 @@ void menu()
     print_line("6. Insert before");
     print_line("7. Swap");
     print_line("8. Sort List");
+    print_line("9. Reverse List");
     printf("Please input your choice: ");
 
     scanf("%d",&choice);
@@ -427,6 +454,9 @@ void menu()
             break;
         case 8:
             sort_list();
+            break;
+        case 9:
+            reverse_list();
             break;
         default:
             break;
